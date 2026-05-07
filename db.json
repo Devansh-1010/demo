@@ -1,14 +1,269 @@
 {
-  "posts": [
-    { "id": 1, "title": "Post 1" },
-    { "id": 2, "title": "Post 2" },
-    { "id": 3, "title": "Post 3" }
+  "version": 20,
+  "description": "Default initial configuration",
+  "sampling": {
+    "default": {
+      "sessionSampleRate": 1
+    },
+    "rules": [],
+    "criticalSessionPolicies": {
+      "alwaysSend": []
+    },
+    "signalsToSample": []
+  },
+  "signals": {
+    "scheduleDurationMs": 5000,
+    "logsCollectorUrl": "http://127.0.0.1:4318/v1/logs",
+    "metricCollectorUrl": "http://127.0.0.1:4318/v1/metrics",
+    "spanCollectorUrl": "http://127.0.0.1:4318/v1/traces",
+    "customEventCollectorUrl": "http://127.0.0.1:4318/v1/logs",
+    "attributesToDrop": [],
+    "attributesToAdd": [],
+    "metricsToAdd": []
+  },
+  "interaction": {
+    "collectorUrl": null,
+    "configUrl": "http://127.0.0.1:8080/v1/interaction-configs/projects/default-project/interaction.json",
+    "beforeInitQueueSize": 100
+  },
+  "features": [
+    {
+      "featureName": "interaction",
+      "sessionSampleRate": 1,
+      "sdks": [
+        "pulse_android_java",
+        "pulse_android_rn",
+        "pulse_ios_swift",
+        "pulse_ios_rn",
+        "pulse_web_js"
+      ],
+      "config": null
+    },
+    {
+      "featureName": "java_crash",
+      "sessionSampleRate": 1,
+      "sdks": [
+        "pulse_android_java",
+        "pulse_android_rn"
+      ],
+      "config": null
+    },
+    {
+      "featureName": "js_crash",
+      "sessionSampleRate": 1,
+      "sdks": [
+        "pulse_android_rn",
+        "pulse_ios_rn"
+      ],
+      "config": null
+    },
+    {
+      "featureName": "js_crash",
+      "sessionSampleRate": 1,
+      "sdks": [
+        "pulse_web_js"
+      ],
+      "config": null
+    },
+    {
+      "featureName": "java_anr",
+      "sessionSampleRate": 1,
+      "sdks": [
+        "pulse_android_java",
+        "pulse_android_rn"
+      ],
+      "config": null
+    },
+    {
+      "featureName": "network_change",
+      "sessionSampleRate": 1,
+      "sdks": [
+        "pulse_android_java",
+        "pulse_android_rn",
+        "pulse_ios_swift",
+        "pulse_ios_rn",
+        "pulse_web_js"
+      ],
+      "config": null
+    },
+    {
+      "featureName": "custom_events",
+      "sessionSampleRate": 1,
+      "sdks": [
+        "pulse_android_java",
+        "pulse_android_rn",
+        "pulse_ios_swift",
+        "pulse_ios_rn",
+        "pulse_web_js"
+      ],
+      "config": null
+    },
+    {
+      "featureName": "rn_screen_load",
+      "sessionSampleRate": 0,
+      "sdks": [
+        "pulse_android_rn",
+        "pulse_ios_rn"
+      ],
+      "config": null
+    },
+    {
+      "featureName": "rn_screen_interactive",
+      "sessionSampleRate": 0,
+      "sdks": [
+        "pulse_android_rn",
+        "pulse_ios_rn"
+      ],
+      "config": null
+    },
+    {
+      "featureName": "rn_screen_session",
+      "sessionSampleRate": 0,
+      "sdks": [
+        "pulse_android_rn",
+        "pulse_ios_rn"
+      ],
+      "config": null
+    },
+    {
+      "featureName": "session_replay",
+      "sessionSampleRate": 1,
+      "sdks": [
+        "pulse_android_java",
+        "pulse_android_rn",
+        "pulse_ios_swift",
+        "pulse_ios_rn",
+        "pulse_web_js"
+      ],
+      "config": {
+        "featureName": "session_replay",
+        "textAndInputPrivacy": "MASK_ALL",
+        "imagePrivacy": "MASK_ALL",
+        "maxBatchSize": 50,
+        "flushIntervalSeconds": 60,
+        "flushAt": 10,
+        "throttleDelayMs": 1000,
+        "screenshotScale": 1,
+        "screenshotQuality": 30,
+        "replayApiBaseUrl": "http://localhost:3400"
+      }
+    },
+    {
+      "featureName": "click",
+      "sessionSampleRate": 0,
+      "sdks": [
+        "pulse_android_java",
+        "pulse_android_rn",
+        "pulse_ios_swift",
+        "pulse_ios_rn",
+        "pulse_web_js"
+      ],
+      "config": {
+        "featureName": "click",
+        "captureContext": true,
+        "rage": {
+          "timeWindowMs": 2000,
+          "threshold": 3,
+          "radius": 50
+        }
+      }
+    },
+    {
+      "featureName": "heatmap",
+      "sessionSampleRate": 1,
+      "sdks": [
+        "pulse_android_java",
+        "pulse_android_rn",
+        "pulse_ios_swift",
+        "pulse_ios_rn",
+        "pulse_web_js"
+      ],
+      "config": null
+    },
+    {
+      "featureName": "ios_crash",
+      "sessionSampleRate": 1,
+      "sdks": [
+        "pulse_ios_swift",
+        "pulse_ios_rn"
+      ],
+      "config": null
+    },
+    {
+      "featureName": "android_slowrendering",
+      "sessionSampleRate": 0,
+      "sdks": [
+        "pulse_android_java",
+        "pulse_android_rn"
+      ],
+      "config": null
+    },
+    {
+      "featureName": "ios_network",
+      "sessionSampleRate": 1,
+      "sdks": [
+        "pulse_ios_swift",
+        "pulse_ios_rn"
+      ],
+      "config": null
+    },
+    {
+      "featureName": "rn_network",
+      "sessionSampleRate": 0,
+      "sdks": [
+        "pulse_android_rn",
+        "pulse_ios_rn"
+      ],
+      "config": null
+    },
+    {
+      "featureName": "ios_lifecycle",
+      "sessionSampleRate": 0,
+      "sdks": [
+        "pulse_ios_swift",
+        "pulse_ios_rn"
+      ],
+      "config": null
+    },
+    {
+      "featureName": "android_activity",
+      "sessionSampleRate": 0,
+      "sdks": [
+        "pulse_android_java",
+        "pulse_android_rn"
+      ],
+      "config": null
+    },
+    {
+      "featureName": "android_fragment",
+      "sessionSampleRate": 0,
+      "sdks": [
+        "pulse_android_java",
+        "pulse_android_rn"
+      ],
+      "config": null
+    },
+    {
+      "featureName": "screen_session",
+      "sessionSampleRate": 0,
+      "sdks": [],
+      "config": null
+    },
+    {
+      "featureName": "network_instrumentation",
+      "sessionSampleRate": 0,
+      "sdks": [],
+      "config": null
+    }
   ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 },
-    { "id": 2, "body": "some comment", "postId": 1 }
-  ],
-  "profile": {
-    "name": "typicode"
+  "batchConfig": {
+    "batchLogs": {
+      "maxExportBatchSize": 1,
+      "scheduleDelay": 1000
+    },
+    "batchSpans": {
+      "maxExportBatchSize": 1,
+      "scheduleDelay": 1000
+    }
   }
 }
